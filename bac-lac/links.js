@@ -27,10 +27,12 @@
 		"Prince Edward Island": "PE",
 		"Quebec": "QC",
 		"Saskatchewan": "SK",
+		"The Territories": "TT",
 		"Yukon": "YT",
 
 		"Colombie-Britannique": "BC",
 		"&#206;le-du-Prince-&#201;douard": "PE",
+		"Les Territoires": "TT",
 		"Nouveau-Brunswick": "NB",
 		"Nouvelle-&#201;cosse": "NS",
 		"Qu&#233;bec": "QC",
