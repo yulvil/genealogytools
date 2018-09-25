@@ -189,7 +189,9 @@
 		}
 
 		link = getLink(values[k].q, values, yyyy[1], 0);
-		values[k].node.innerHTML += ' <a href="' + link + '">Link</a>';
+		if (values[k] && values[k].node) {
+			values[k].node.innerHTML += ' <a href="' + link + '">Link</a>';
+		}
 
 		if (k === "cnsPageNum") {
 			link = getLink(values[k].q, values, yyyy[1], 1);
