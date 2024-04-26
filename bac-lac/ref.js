@@ -39,6 +39,10 @@ javascript: (function () {
         "year": 1921,
         "fields": ["Province", "District Name", "District Number", "Sub-District Name", "Sub-District Number", "Family Number", "Page Number", "Line Number", "Reference", "Item Number"],
     };
+    m["1926/eng"] = {
+        "year": 1926,
+        "fields": ["Province", "District Name", "District Number", "Sub-District Description", "Sub-District Number", "Family Number", "Page Number", "Line Number", "Reference", "Item Number"],
+    };
     var map = {};
     var lines = document.querySelectorAll(".col-md-6 > p");
     for (var i = 0; i < lines.length; i++) {
