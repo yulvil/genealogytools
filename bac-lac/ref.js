@@ -1,11 +1,4 @@
 javascript: (function () {
-    var re_year = /\/(\d{4})\//;
-    var yyyy = re_year.exec(document.location) || {};
-    var re_lang = /\/(eng|fra)\//;
-    var lang = re_lang.exec(document.location) || {};
-    if (lang[1] === "fra") {
-        document.location = document.location.replace("fra/recensements", "eng/census");
-    }
     var m = {};
     m["1851/eng"] = {
         "year": 1851,
@@ -43,16 +36,22 @@ javascript: (function () {
         "year": 1926,
         "fields": ["Province", "District Name", "District Number", "Sub-District Description", "Sub-District Number", "Family Number", "Page Number", "Line Number", "Reference", "Item Number"],
     };
+    m["1931"] = {
+        "year": 1931,
+        "fields": ["Province", "District name", "District number", "Sub-district name", "Sub-district number", "Family number", "Page number", "Line number", "Item ID number", "Image number"],
+    };
     var map = {};
-    var lines = document.querySelectorAll(".col-md-6 > p");
+    var lines = document.querySelectorAll(".CFCS-table-row-flex");
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].innerText.length > 0) {
-            var fields = lines[i].innerText.split(':');
+            var fields = lines[i].innerText.split(/[:?]/);
             map[fields[0].trim()] = fields[1].trim();
         }
     };
-    var res = "Census of Canada, " + yyyy[1];
-    var fields = m[yyyy[1] + "/" + lang[1]].fields;
+    var re_year = /\/(\d{4})\//;
+    var yyyy = re_year.exec(map['Census year']) || '1931';
+    var res = "Census of Canada, " + yyyy;
+    var fields = m[yyyy].fields;
     for (var i = 0; i < fields.length; i++) {
         res += ", " + fields[i] + ": " + (map[fields[i]] || "");
     }
